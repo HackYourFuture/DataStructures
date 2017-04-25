@@ -1,25 +1,24 @@
 class Queue {
 
-  // todo: add a constructor? and implement the methods
+  constructor() {
+    this.queue = [];
+  }
 
   enqueue(value) {
-
+    this.queue.push(value);
   }
 
   dequeue() {
-
+    return this.queue.shift();
   }
 
   peek() {
-
+    return this.queue[0];
   }
 
   length() {
-
+    return this.queue.length;
   }
 
-  print() {
-
-  }
 }
 module.exports = Queue;

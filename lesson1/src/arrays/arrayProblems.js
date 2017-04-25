@@ -9,7 +9,9 @@ class ArrayProblems {
   static allEqualElements(array) {
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
-        // todo: do stuff here
+        if (array[i] !== array[j]) {
+          return false;
+        }
       }
     }
     return true;
@@ -21,14 +23,22 @@ class ArrayProblems {
    Eg2: [-3,-1,0,5] -> 5
    */
   static getMax(array) {
-    // todo: do stuff here
+    return array.reduce(function (a, b) {
+      return ((a > b) ? a : b);
+    });
   }
 
   /*
    Can you implement getMax again without using any js collection method?
    */
   static getMax2(array) {
-    // todo: 🙌 do magic !
+    let max = Number.NEGATIVE_INFINITY;
+    for (let i = 0; i< array.length; i++){
+      if (array[i] > max){
+        max = array[i];
+      }
+    }
+    return max;
   }
 
   /*
