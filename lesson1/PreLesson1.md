@@ -72,6 +72,12 @@ Pre class reading will get you started on Stacks and Queues
 
 # Pre-Lesson Readings <a name="pre-reading"></a>
 
+1. [Algorithms and data structures](http://cs-fundamentals.com/data-structures/introduction-to-data-structures.php)
+2. [Brushing up on arrays](http://www.bymichaellancaster.com/blog/javascript-data-structure-algorithms-series-ep2-arrays/)
+3. [Stacks](https://drive.google.com/open?id=0B5KymQ29OlMANERwRmRZTTBObDQ)
+4. [Queues](https://drive.google.com/open?id=0B5KymQ29OlMANFBPY1c2Y2E0R0U) (Ignore last stuff abut java implementation)
+
+
 
 # Pre-Lesson Exercises <a name="pre-exercises"></a>
 
