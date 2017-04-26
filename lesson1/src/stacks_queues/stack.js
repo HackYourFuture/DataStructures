@@ -1,6 +1,7 @@
 class Stack {
   constructor() {
     this.stack = [];
+    this.top = 0; // feel free to use or remove top
   }
 
   /*
@@ -26,9 +27,10 @@ class Stack {
 
   /*
    Self explanatory freebie, nothing to do here yay !
+   unless you removed top, then you should something trivial here..
    */
   length() {
-    return this.stack.length;
+    return this.top; // not if you removed it 😉
   }
 
   /*

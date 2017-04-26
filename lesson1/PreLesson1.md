@@ -4,7 +4,7 @@
 3. [Pre-Lesson Exercises](#pre-exercises)
 
 # Introduction
-Welcome to Intro to Algorithms and Data Structures week 0, this will be a fun ride. Don’t worry if you dont understand all the theory or if you cannot complete all the exercises but its is extremely important that you DO read and try to finish the exercises.
+Welcome to Intro to Algorithms and Data Structures pre-lesson 1!, this will be a fun ride. Don’t worry if you dont understand all the theory or if you cannot complete all the exercises but its is extremely important that you DO read and try to finish the exercises.
 
 There is a lot to do before lesson 1, but I promise next lectures will have less reading, but more exercises.
 
@@ -27,8 +27,8 @@ But you can also look back on what multiplication means, and say that a*b is the
 ```javascript
 function multiply2(a, b) {
     var result = 0;
-    for (i = 0; i < p2; i++) {
-        result += p1;
+    for (i = 0; i < b; i++) {
+        result += a;
     }
     return result;
 }
@@ -52,7 +52,7 @@ We could start with the horrible approach this time, and use the wrong data stru
 let user = [“pablo”,”pabloDaBest@mail.com”];
 ```
 
-But you can probably realize this approach could get ugly soon. We would need to remember the name and email positions (0 and 1), for every time we want to access them or we could accidentaly add a third element into that array.
+But you can probably realize this approach could get ugly soon. We would need to remember the name and email positions (0 and 1), for every time we want to access them or we could accidentally add a third element into that array.
 
 We know a better way to organize and access this data, creating an object with both properties could work, but thanks to the wonders of ECMAScript 2015 we could create a User class and a new instance per user we want to manipulate.
 
