@@ -7,17 +7,11 @@ class ArrayProblems {
    Eg2: [1,1,1,2] -> false
    */
   static allEqualElements(array) {
-    console.log("I'm a new run with array : " + array.toString());
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
-        console.log(array[i] === array[j]);
-        if (array[i] !== array[j]) {
-          console.log("Found a different element!");
-          return false;
-        }
+        // todo: do stuff here
       }
     }
-    console.log("They are all the same elements!");
     return true;
   }
 
