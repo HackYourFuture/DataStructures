@@ -5,20 +5,20 @@ describe("ArrayProblems", function () {
   describe("Unique elements function", function () {
 
     it("should mark unique arrays as such", function () {
-      expect(ArrayProblems.allUniqueElements(["a", "a", "a"])).toBe(true);
+      expect(ArrayProblems.allEqualElements(["a", "a", "a"])).toBe(true);
     });
 
     it("should be false on distinct array", function () {
-      expect(ArrayProblems.allUniqueElements(["a", "b"])).toBe(false);
-      expect(ArrayProblems.allUniqueElements(["a", "a", "a", "a", "b"])).toBe(false);
+      expect(ArrayProblems.allEqualElements(["a", "b"])).toBe(false);
+      expect(ArrayProblems.allEqualElements(["a", "a", "a", "a", "b"])).toBe(false);
     });
 
     it("should be true on a one element array", function () {
-      expect(ArrayProblems.allUniqueElements([1])).toBe(true);
+      expect(ArrayProblems.allEqualElements([1])).toBe(true);
     });
 
     it("should be true on an empty array", function () {
-      expect(ArrayProblems.allUniqueElements([])).toBe(true);
+      expect(ArrayProblems.allEqualElements([])).toBe(true);
     });
   });
 

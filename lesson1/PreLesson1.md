@@ -100,7 +100,7 @@ Inside lesson1 there is a src folder (where you'll have to work) and a spec fold
 arrayProblems.js is a class that contains some algorithms not fully implemented.
 Your goal is to implement them correctly making all test pass.
 
-* allUniqueElements(array)
+* allEqualElements(array)
 * getMax(array)
 * getMax2(array)
 * rotateLeft(array, n)

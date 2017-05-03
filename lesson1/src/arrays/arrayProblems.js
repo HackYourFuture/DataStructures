@@ -2,16 +2,22 @@ class ArrayProblems {
 
   /*
    This method should return true if a given Array (array)
-   has all unique elements and false otherwise
+   has all equal elements and false otherwise
    Eg1: [1,1,1] -> true
    Eg2: [1,1,1,2] -> false
    */
-  static allUniqueElements(array) {
+  static allEqualElements(array) {
+    console.log("I'm a new run with array : " + array.toString());
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
-        // todo: do stuff here
+        console.log(array[i] === array[j]);
+        if (array[i] !== array[j]) {
+          console.log("Found a different element!");
+          return false;
+        }
       }
     }
+    console.log("They are all the same elements!");
     return true;
   }
 
