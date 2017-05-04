@@ -22,10 +22,13 @@ class StackProblems {
     for (let i = 0; i < string.length; i++) {
       let char = string.charAt(i);
       // todo: do you'r magic ! 🙌
+      (char === '(')? stack.push(char): stack.length();                                         //stack.length() means do nothing;
+      (char === ')')? ((stack.length() > 0)? stack.pop(): stack.push(char)): stack.length();    //stack.length() means do nothing;
     }
-
     return stack.isEmpty();
   }
+  // return (string.match(/\(/g).length === string.match(/\)/g).length)?true:false;
+
 }
 
 module.exports = StackProblems;

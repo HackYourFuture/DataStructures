@@ -10,6 +10,8 @@ class ArrayProblems {
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
         // todo: do stuff here
+        if(array[i] != array[j])
+          return false
       }
     }
     return true;
@@ -22,6 +24,9 @@ class ArrayProblems {
    */
   static getMax(array) {
     // todo: do stuff here
+    let max = Math.max(...array);
+    // Other one let max = array.reduce((a, b) => Math.max(a, b));
+    return max;
   }
 
   /*
@@ -29,6 +34,14 @@ class ArrayProblems {
    */
   static getMax2(array) {
     // todo: 🙌 do magic !
+    let max;
+    (array.length)? max = array[0]: max = false;
+    for(let i = 1; i < array.length; i++) {
+      if (max < array[i]) {
+        max = array[i];
+      }
+    }
+    return max;
   }
 
   /*
@@ -41,6 +54,7 @@ class ArrayProblems {
    */
   static rotateLeft(array, n){
     // todo: 🙌 do magic !
+    return array.splice(n,array.length-n).concat(array.splice(0,n))
   }
 }
 module.exports = ArrayProblems;
