@@ -24,8 +24,17 @@ describe("ArrayProblems", function () {
 
   describe("Max function", function () {
     it("should return 8 as max", function () {
-      expect(ArrayProblems.getMax([2,4,1,8,2])).toBe(8);
-      expect(ArrayProblems.getMax2([-2,-4,-1,-8,-2])).toBe(-1);
+      expect(ArrayProblems.getMax([2, 4, 1, 8, 2])).toBe(8);
+      expect(ArrayProblems.getMax2([-2, -4, -1, -8, -2])).toBe(-1);
+    });
+  });
+
+  describe("Left Rotation", function () {
+    it("should correctly rotate 1 time", function () {
+      expect(ArrayProblems.rotateLeft([2, 4, 1, 8, 2], 1)).toEqual([4, 1, 8, 2, 2]);
+    });
+    it("should correctly rotate 3 times", function () {
+      expect(ArrayProblems.rotateLeft([2, 4, 1, 8, 2], 3)).toEqual([8, 2, 2, 4, 1]);
     });
   });
 });
