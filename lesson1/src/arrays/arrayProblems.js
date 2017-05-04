@@ -2,7 +2,7 @@ class ArrayProblems {
 
   /*
    This method should return true if a given Array (array)
-   has all equal elements and false otherwise
+   has all unique elements and false otherwise
    Eg1: [1,1,1] -> true
    Eg2: [1,1,1,2] -> false
    */
@@ -10,6 +10,9 @@ class ArrayProblems {
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
         // todo: do stuff here
+        if (array[j] !== array[i]) {
+          return false;
+        }
       }
     }
     return true;
@@ -22,6 +25,9 @@ class ArrayProblems {
    */
   static getMax(array) {
     // todo: do stuff here
+    return array.reduce((acc, curr) => {
+      return acc > curr ? acc : curr;
+    })
   }
 
   /*
@@ -29,18 +35,42 @@ class ArrayProblems {
    */
   static getMax2(array) {
     // todo: 🙌 do magic !
+    let result;
+    let i = 0;
+    let j = 0;
+    while(i < array.length){
+      while(j < array.length -1){
+        if(array[i] > array[j]){
+          result = array[i];
+        }else if(array[j] > array[i]){
+          result = array[j];
+        }
+        j++
+      }
+      i++
+      j = i;
+    }
+    // for (let i = 0; i < array.length; i++) {
+    //   for (let j = i; j < array.length - 1; j++) {
+    //     // todo: do stuff here
+    //     if (array[j] > array[i]) {
+    //       result = array[j];
+    //     } else if (array[i] > array[j]) {
+    //       result = array[i];
+    //     }
+    //   }
+    // }
+    return result;
   }
 
-  /*
-   A left rotation operation on an array shifts each
-   of the array's elements 1 unit to the left.
-   For example, if 2 left rotations are performed on array [1,2,3,4,5],
-   then the array would become [3,4,5,1,2].
-
-   This method should perform n left rotations on the array
-   */
   static rotateLeft(array, n){
     // todo: 🙌 do magic !
+    let count= 0;
+    while(count < n){
+      array.push(array.shift());
+      count++
+    }
+    return array;
   }
 }
 module.exports = ArrayProblems;

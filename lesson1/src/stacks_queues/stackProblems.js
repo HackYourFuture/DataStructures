@@ -19,12 +19,18 @@ class StackProblems {
    */
   static balancedParenthesis(string) {
     let stack = new Stack();
-    for (let i = 0; i < string.length; i++) {
-      let char = string.charAt(i);
-      // todo: do you'r magic ! 🙌
-    }
-
-    return stack.isEmpty();
+    let regExp = new RegExp("\\([^()]*\\)", "g");
+    let regExp1 = new RegExp("[()]");
+    let e;
+    do{
+      e = string;
+      string = string.replace(regExp);
+    } while(e != string);
+    return !string.match(regExp1);
+    // for (let i = 0; i < string.length; i++) {
+    //   let char = string.charAt(i);
+    //   // todo: do you'r magic ! 🙌
+    // }
   }
 }
 
