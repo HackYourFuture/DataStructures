@@ -8,21 +8,28 @@ class Stack {
    Push should insert the value into the queue
    */
   push(value) {
-    // todo: do stuff
+    this.stack.push(value)
+    this.top += 1
   }
 
   /*
    Pop should return the value and remove it from the queue
    */
   pop() {
-    // todo: do stuff
+    this.top -= 1
+    return this.stack.pop()
   }
 
   /*
    Peek should return the value without removing it from the queue
    */
   peek() {
-    // todo: do stuff
+    if (this.top != 0) {
+      this.frontElement = this.stack[(this.top - 1)]
+      return this.frontElement
+    } else {
+      return null
+    }
   }
 
   /*
@@ -37,7 +44,11 @@ class Stack {
    Should return a boolean indicating if queue is empty
    */
   isEmpty() {
-    // todo: do stuff
+    if (this.top == 0) {
+      return true
+    } else {
+      return false
+    }
   }
 
 }

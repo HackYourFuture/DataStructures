@@ -40,12 +40,16 @@ class ArrayProblems {
   }
 
   static rotateLeft(array, n) {
-    for (let i = 0; i < n; i++) {
-      let temp = array[0];
-      array.shift();
-      temp = array.push(temp);
+    if (array) {
+      for (let i = 0; i < n; i++) {
+        let temp = array[0];
+        array.shift();
+        temp = array.push(temp);
+      }
+      return array;
+    } else {
+      return array;
     }
-    return array;
   }
 }
 module.exports = ArrayProblems;
