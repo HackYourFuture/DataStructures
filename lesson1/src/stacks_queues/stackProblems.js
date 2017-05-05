@@ -25,15 +25,15 @@ class StackProblems {
       if (char === '(') {
         stack.push(char);
       } else if (char === ")") {
-          if (stack.length() > 0) {
+          if (stack.length() !== 0) {
             stack.pop();
           } else {
             stack.push(char)
           }
       }
     }
-    console.log(stack.stack)
-    return stack.length() === 0 ? true : false;
+    // console.log(stack.stack)
+    return stack.length() === 0;
 
     // let regExp = new RegExp("\\([^()]*\\)", "g");
     // let regExp1 = new RegExp("[()]");

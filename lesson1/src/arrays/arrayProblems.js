@@ -36,38 +36,34 @@ class ArrayProblems {
   static getMax2(array) {
     // todo: 🙌 do magic !
     let result;
-    let i = 0;
-    let j = 0;
+    let i = 1;
     while(i < array.length){
-      while(j < array.length -1){
-        if(array[i] > array[j]){
+        if(array[i] > array[0]){
           result = array[i];
-        }else if(array[j] > array[i]){
-          result = array[j];
+          array[0] = array[i];
+        }else{
+          result = array[0];
         }
-        j++
-      }
       i++
-      j = i;
     }
-    // for (let i = 0; i < array.length; i++) {
-    //   for (let j = i; j < array.length - 1; j++) {
+    // for (let i = 1; i < array.length; i++) {
     //     // todo: do stuff here
-    //     if (array[j] > array[i]) {
-    //       result = array[j];
-    //     } else if (array[i] > array[j]) {
+    //     if (array[0] > array[i]) {
+    //       result = array[0];
+    //     } else {
     //       result = array[i];
+    //       array[0] = array[i];
     //     }
-    //   }
     // }
     return result;
   }
 
   static rotateLeft(array, n){
-    // todo: 🙌 do magic !
+    // todo: 🙌 do magic ! 
     let count= 0;
     while(count < n){
-      array.push(array.shift());
+      let item =array.shift();
+      item ? array.push(item) : array.push([]);
       count++
     }
     return array;
