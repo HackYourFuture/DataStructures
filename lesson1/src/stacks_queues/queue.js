@@ -34,9 +34,9 @@ class Queue {
     }
   print() {
     for (let i = this.head; i < this.tail; ++i) {
-        print(this.queue[i])
+        process.stdout.write(this.queue[i])
         if (i != this.tail-1) {
-            print(", ")
+            process.stdout.write(", ")
         }
     }
   }

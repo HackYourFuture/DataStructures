@@ -62,7 +62,7 @@ class StackProblems {
   */
   static infixToPostfix(string) {
     let stack = new Stack();
-
+    let postfix = ""
     /* todo : Do your stuff here */
     return postfix;
   }
