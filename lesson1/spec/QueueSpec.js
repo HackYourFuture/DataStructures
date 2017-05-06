@@ -1,6 +1,6 @@
 let Queue = require("../src/stacks_queues/queue");
 
-describe("Stack", function () {
+describe("Queue", function () {
 
   let queue = new Queue();
 

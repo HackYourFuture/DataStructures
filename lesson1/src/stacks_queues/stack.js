@@ -5,24 +5,35 @@ class Stack {
   }
 
   /*
-   Push should insert the value into the queue
+   Push should insert the value into the stack
    */
   push(value) {
-    // todo: do stuff
+    this.stack[this.top] = value;
+    this.top += 1;
   }
 
   /*
-   Pop should return the value and remove it from the queue
+   Pop should return the value and remove it from the stack
    */
   pop() {
     // todo: do stuff
+    if (this.isEmpty()) {
+        return -1;
+    }
+    let popped = this.stack[this.top-1]
+    this.top -= 1;
+    return popped;
   }
 
   /*
-   Peek should return the value without removing it from the queue
+   Peek should return the value without removing it from the stack
    */
   peek() {
     // todo: do stuff
+    if (this.isEmpty()) {
+        return -1;
+    }
+    return this.stack[this.top-1];
   }
 
   /*
@@ -38,6 +49,7 @@ class Stack {
    */
   isEmpty() {
     // todo: do stuff
+    return this.top ==0;
   }
 
 }

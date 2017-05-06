@@ -20,8 +20,15 @@ class StackProblems {
   static balancedParenthesis(string) {
     let stack = new Stack();
     for (let i = 0; i < string.length; i++) {
-      let char = string.charAt(i);
-      // todo: do you'r magic ! 🙌
+      let ch = string.charAt(i);
+      if (ch == '(') {
+        stack.push(ch);
+      } else if (ch == ')') {
+        let expect = stack.pop()
+        if (expect != '(') {
+            return false;
+        }
+      }
     }
 
     return stack.isEmpty();
