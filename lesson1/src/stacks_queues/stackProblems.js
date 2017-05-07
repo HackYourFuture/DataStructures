@@ -62,7 +62,29 @@ class StackProblems {
   */
   static infixToPostfix(string) {
     let stack = new Stack();
+    let priority = {'^' : 5, '/' : 4, '*' : 3, '+': 2, '-': 1}
     let postfix = ""
+    for (let i = 0; i < string.length; ++i) {
+        let ch = string.charAt(i)
+        if (ch === '+' || ch === '-' || ch === '*' || ch === '/' || ch === '^') {
+            if (stack.isEmpty()) {
+                stack.push(ch);
+            } else {
+                let topOperator = stack.peek()
+                while (priority[ch] < priority[topOperator]) {
+                    let popped = stack.pop()
+                    postfix += popped;
+                    topOperator = stack.peek();
+                }
+                stack.push(ch)
+            }
+        } else {
+            postfix += ch;
+        }
+    }
+    while (!stack.isEmpty()) {
+        postfix += (stack.pop())
+    }
     /* todo : Do your stuff here */
     return postfix;
   }
@@ -79,7 +101,25 @@ class StackProblems {
     let values = {'a' : 5, 'b' : 4, 'c' : 8, 'd' : 9, 'e' : 3, 'f' : 2, 'g' : 6, 'h' : 7, 'i' : 1, 'j' : 10}
     let stack = new Stack();
     let result = 0;
-    /* todo : Do your stuff here */
+
+    for (let i = 0; i < string.length; ++i) {
+        let ch = string.charAt(i);
+
+        if (ch === '+' || ch === '-' || ch === '*' || ch === '/' || ch === '^') {
+            let second = stack.pop()
+            let first = stack.pop()
+            switch(ch) {
+                case '+': result = first + second; break;
+                case '-': result = first - second; break;
+                case '*': result = first * second; break;
+                case '/': result = first / second; break;
+                case '^': result = Math.pow(first, second); break;
+            }
+            stack.push(result);
+        } else {
+            stack.push(values[ch]);
+        }
+    }
 
     return stack.pop();
   }
