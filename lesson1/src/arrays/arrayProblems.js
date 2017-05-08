@@ -9,8 +9,7 @@ class ArrayProblems {
   static allEqualElements(array) {
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
-        // todo: do stuff here
-        if (array[j] !== array[i]) {
+        if (array[i] !== array[j]) {
           return false;
         }
       }
@@ -34,39 +33,19 @@ class ArrayProblems {
    Can you implement getMax again without using any js collection method?
    */
   static getMax2(array) {
-    // todo: 🙌 do magic !
-    let result;
-    let i = 1;
-    while(i < array.length){
-        if(array[i] > array[0]){
-          result = array[i];
-          array[0] = array[i];
-        }else{
-          result = array[0];
-        }
-      i++
+    let max = Number.NEGATIVE_INFINITY;
+    for (let i = 0; i< array.length; i++){
+      if (array[i] > max){
+        max = array[i];
+      }
     }
-    // for (let i = 1; i < array.length; i++) {
-    //     // todo: do stuff here
-    //     if (array[0] > array[i]) {
-    //       result = array[0];
-    //     } else {
-    //       result = array[i];
-    //       array[0] = array[i];
-    //     }
-    // }
-    return result;
+    return max;
   }
 
   static rotateLeft(array, n){
-    // todo: 🙌 do magic ! 
-    let count= 0;
-    while(count < n){
-      let item =array.shift();
-      item ? array.push(item) : array.push([]);
-      count++
-    }
+    array.push.apply(array, array.splice(0, n));
     return array;
+
   }
 }
 module.exports = ArrayProblems;

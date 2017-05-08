@@ -21,15 +21,14 @@ class StackProblems {
     let stack = new Stack();
     for (let i = 0; i < string.length; i++) {
       let char = string.charAt(i);
-      // todo: do you'r magic ! 🙌
-      if (char === '(') {
+      if (char === ')') {
+        if (stack.isEmpty() || stack.peek() !== '(') {
+          return false;
+        } else {
+          stack.pop();
+        }
+      } else if (char === '(') {
         stack.push(char);
-      } else if (char === ")") {
-          if (stack.length() !== 0) {
-            stack.pop();
-          } else {
-            stack.push(char)
-          }
       }
     }
     // console.log(stack.stack)

@@ -15,12 +15,7 @@ Introduction to Data Structures
 ## Lesson 2 : Linked List, Sorting Algorithms and Algorithm complexities
 
 ### Pre-Lesson
-* Finish implementation of Linked List: Append(), Display(), Insert() and Delete()
-* Find if a linked list has a loop (or a cycle)
-* Find the average of all numbers in a Linked List
-* Implement Stack with Linked List
-* Implement Stack using Queues
-
+[Pre lesson 2](lesson2/PreLesson2.md)
 
 ### Content
 * Introduction to Doubly Linked List
