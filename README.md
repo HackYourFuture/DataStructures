@@ -15,7 +15,7 @@ Introduction to Data Structures
 ## Lesson 2 : Linked List, Sorting Algorithms and Algorithm complexities
 
 ### Pre-Lesson
-[Pre lesson 2](lesson1/PreLesson2.md)
+[Pre lesson 2](lesson2/PreLesson2.md)
 
 ### Content
 * Introduction to Doubly Linked List
