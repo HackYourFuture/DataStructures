@@ -50,7 +50,9 @@ class ArrayProblems {
    This method should perform n left rotations on the array
    */
   static rotateLeft(array, n){
-    // todo: 🙌 do magic !
+    array.push.apply(array, array.splice(0, n));
+    return array;
+
   }
 }
 module.exports = ArrayProblems;

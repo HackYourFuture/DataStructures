@@ -30,7 +30,7 @@ class Stack {
    unless you removed top, then you should something trivial here..
    */
   length() {
-    return this.top; // not if you removed it 😉
+    return this.stack.length; // not if you removed it 😉
   }
 
   /*
