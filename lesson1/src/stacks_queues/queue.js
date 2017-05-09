@@ -4,7 +4,6 @@ class Queue {
     this.queue = [];
   }
 
-
   enqueue(value) {
     this.queue.push(value)
   }
@@ -14,7 +13,8 @@ class Queue {
   }
 
   peek() {
-    return this.queue[this.queue.length-1]
+    return this.queue[0];
+    //return this.queue[this.queue.length-1]
   }
 
   length() {

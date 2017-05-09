@@ -9,9 +9,12 @@ class ArrayProblems {
   static allEqualElements(array) {
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
+        if (array[i] !== array[j]) {
+          return false;
+        }
         // todo: do stuff here
-        if(array[i] != array[j])
-          return false
+        // if(array[i] != array[j])
+        //   return false
       }
     }
     return true;
@@ -23,21 +26,27 @@ class ArrayProblems {
    Eg2: [-3,-1,0,5] -> 5
    */
   static getMax(array) {
+    return array.reduce(function (a, b) {
+      return ((a > b) ? a : b);
+    });
     // todo: do stuff here
-    let max = Math.max(...array);
+    // let max = Math.max(...array);
     // Other one let max = array.reduce((a, b) => Math.max(a, b));
-    return max;
+    // return max;
   }
 
   /*
    Can you implement getMax again without using any js collection method?
    */
   static getMax2(array) {
+    let max = Number.NEGATIVE_INFINITY;
+    for (let i = 0; i< array.length; i++){
+      if (array[i] > max){
     // todo: 🙌 do magic !
-    let max;
-    (array.length)? max = array[0]: max = false;
-    for(let i = 1; i < array.length; i++) {
-      if (max < array[i]) {
+    // let max;
+    // (array.length)? max = array[0]: max = false;
+    // for(let i = 1; i < array.length; i++) {
+    //   if (max < array[i]) {
         max = array[i];
       }
     }
@@ -53,8 +62,11 @@ class ArrayProblems {
    This method should perform n left rotations on the array
    */
   static rotateLeft(array, n){
+    array.push.apply(array, array.splice(0, n));
+    return array;
+
     // todo: 🙌 do magic !
-    return array.splice(n,array.length-n).concat(array.splice(0,n))
+    // return array.splice(n,array.length-n).concat(array.splice(0,n))
   }
 }
 module.exports = ArrayProblems;

@@ -8,7 +8,6 @@ class Stack {
    Push should insert the value into the queue
    */
   push(value) {
-    // todo: do stuff
     this.stack.push(value);
   }
 
@@ -16,7 +15,6 @@ class Stack {
    Pop should return the value and remove it from the queue
    */
   pop() {
-    // todo: do stuff
     return this.stack.pop();
   }
 
@@ -40,8 +38,9 @@ class Stack {
    Should return a boolean indicating if queue is empty
    */
   isEmpty() {
+    return this.stack.length < 1;
     // todo: do stuff
-    return (this.stack.length)? false : true;
+   // return (this.stack.length)? false : true;
   }
 }
 

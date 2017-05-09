@@ -21,9 +21,18 @@ class StackProblems {
     let stack = new Stack();
     for (let i = 0; i < string.length; i++) {
       let char = string.charAt(i);
+      if (char === ')') {
+        if (stack.isEmpty() || stack.peek() !== '(') {
+          return false;
+        } else {
+          stack.pop();
+        }
+      } else if (char === '(') {
+        stack.push(char);
+      }
       // todo: do you'r magic ! 🙌
-      (char === '(')? stack.push(char): stack.length();                                         //stack.length() means do nothing;
-      (char === ')')? ((stack.length() > 0)? stack.pop(): stack.push(char)): stack.length();    //stack.length() means do nothing;
+      // (char === '(')? stack.push(char): stack.length();                                         //stack.length() means do nothing;
+      // (char === ')')? ((stack.length() > 0)? stack.pop(): stack.push(char)): stack.length();    //stack.length() means do nothing;
     }
     return stack.isEmpty();
   }
