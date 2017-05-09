@@ -14,10 +14,10 @@ class LinkedList {
   }
 
   /*
- Append should insert an element at the end of the list.
- Eg1: List(2,4) append(5)  -> List (2,4,5)
- Eg2: List() append(5)  -> List (5)
- */
+   Append should insert an element at the end of the list.
+   Eg1: List(2,4) append(5)  -> List (2,4,5)
+   Eg2: List() append(5)  -> List (5)
+   */
   append(data) {
     // first create a Node with the data
     let node = new Node(data);
@@ -55,8 +55,9 @@ class LinkedList {
   }
 
   /*
-   Remove should delete the first occurrence of data in the list.
-   Eg1: List(2, 4, 5, 4) delete(4)  -> List (2,5,4)
+   Remove should delete the first occurrence of given data from the list.
+   Eg1: List(2, 4, 5, 4) remove(2)  -> List (4,5,4)
+   Eg2: List(2, 4, 5, 4) remove(4)  -> List (2,5,4)
    */
   remove(data) {
     // todo: implement me 🦑️
