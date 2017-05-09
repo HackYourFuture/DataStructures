@@ -22,7 +22,17 @@ class LinkedList {
     // first create a Node with the data
     let node = new Node(data);
     // todo: implement me 🦑️
-
+    if (this.head === null) {
+      this.head = node;
+      this.length++;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
+      this.length++
+    }
   }
 
   /*
@@ -33,6 +43,15 @@ class LinkedList {
     // first create a Node with the data
     let node = new Node(data);
     // todo: implement me 🦑️
+    if(this.head === null){
+      this.head = node;
+      this.length++
+    }else{
+      let newHead = node;
+      newHead.next = this.head;
+      this.head = newHead;
+      this.length++      
+    }
   }
 
   /*
@@ -41,6 +60,22 @@ class LinkedList {
    */
   remove(data) {
     // todo: implement me 🦑️
+    if(!this.head) return null;
+    if(this.head.data === data){
+      this.head = this.head.next;
+      return;
+    }
+    let current = this.head;
+    let count = 0;
+    while(count < this.length){
+      if(data === current.next.data){
+        current.next = current.next.next;
+        this.length--
+        return;
+      }
+      current = current.next;
+      count++
+    }
   }
 
   /*
@@ -49,6 +84,7 @@ class LinkedList {
    */
   size() {
     // todo: implement me 🦑️
+    return this.length;
   }
 
 
@@ -67,6 +103,18 @@ class LinkedList {
     return aux;
   }
 
+  eachItem(){
+    let count = 0;
+    let current = this.head;
+
+    while(count < this.length && current){
+      console.log('the item is: ', current.data);
+      current = current.next;
+      count++
+    }
+  }
+
 }
+
 
 module.exports = LinkedList;
