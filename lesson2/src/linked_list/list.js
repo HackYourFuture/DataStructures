@@ -50,7 +50,7 @@ class LinkedList {
    Eg1: List(2, 4, 5, 4) size() -> 4
    */
   size() {
-    //todo: implement 🦑
+    return this.length;
   }
 
 
