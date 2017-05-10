@@ -1,3 +1,4 @@
+// const stack
 class ListProblems {
 
   /*
@@ -13,6 +14,35 @@ class ListProblems {
    */
   static removeDuplicates(list) {
     //todo : implement !
+    
+    let current = list.head;
+    let hash ={};
+    let prev;
+    while(current !== null){
+      if(current.data in hash){// you can do: "hash[current.data]" as well
+        prev.next = current.next;
+      }else{
+        hash[current.data] = true; // Or to my name;_) 
+        prev = current;
+      }
+      current = current.next;
+    }
+
+    // while(current !== null){
+    //   prev = current;
+    //   while(prev.next !== null){
+    //     if(prev.next.data === current.data){
+    //       prev.next = prev.next.next;
+    //     }else{
+    //       prev = prev.next;
+    //     }
+    //   }
+    //   current = current.next;
+    // }
+
+
+    return list;
+
   }
 }
 
