@@ -25,7 +25,7 @@ describe("Problems", function () {
 
     let kthToLast = ListProblems.kthToLast(list, 2);
     console.log("Done.. 2nd to last element found is " + kthToLast);
-    expect(kthToLast.toEqual(9));
+    expect(kthToLast).toEqual(9);
   });
 
   it("should find the last element in List(5,9,2,9,3,7)", function () {
@@ -37,7 +37,7 @@ describe("Problems", function () {
 
     let kthToLast = ListProblems.kthToLast(list, 0);
     console.log("Done.. 2nd to last element found is " + kthToLast);
-    expect(kthToLast.toEqual(7));
+    expect(kthToLast).toEqual(7);
   });
 
   it("should detect that list has a cycle", function () {
