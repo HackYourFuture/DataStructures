@@ -6,18 +6,30 @@ let Stack = require("../../../lesson1/src/stacks_queues/stack");
 class StackQueue {
   constructor() {
     // create 2 stacks here... you are not allowed to use an array or list
+    this.stack1 = [];
+    this.stack2 = [];
   }
 
   enqueue(value) {
-    // implement all methods
+    this.stack1.push(value);
   }
 
   dequeue() {
-    // implement all methods
+      if (!this.stack2.length) {
+         if (!this.stack1.length) {
+           return undefined;
+         }
+         while (this.stack1.length) {
+           this.stack2.push(this.stack1.pop());
+          }
+       }
+        return this.stack2.pop();
   }
 
   peek() {
-    // implement all methods
+    if(!this.stack1.length) {
+      return this.stack2[0];
+    }
   }
 }
 module.exports = StackQueue;

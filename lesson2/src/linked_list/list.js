@@ -13,16 +13,30 @@ class LinkedList {
     this.length = 0;
   }
 
+
+  isEmpty() {
+    return this.head === null;
+  }
+
   /*
    Append should insert an element at the end of the list.
    Eg1: List(2,4) append(5)  -> List (2,4,5)
    Eg2: List() append(5)  -> List (5)
    */
   append(data) {
-    // first create a Node with the data
     let node = new Node(data);
+    if(this.isEmpty()) {
+      this.head = node;
+      return;
+    }
 
-    //todo: implement 🦑
+    let current = this.head;
+
+    while(current.next !== null) {
+           current = current.next
+    }
+
+    current.next = node;
 
   }
 
@@ -31,9 +45,12 @@ class LinkedList {
    Eg1: List(2,4) prepend(5)  -> List (5, 2, 4)
    */
   prepend(data) {
-    // first create a Node with the data
-    let node = new Node(data);
-    //todo: implement 🦑
+    let node = {
+      data: data,
+      next: this.head
+    };
+
+    this.head = node;
   }
 
   /*
@@ -42,7 +59,20 @@ class LinkedList {
    Eg2: List(2, 4, 5, 4) remove(4)  -> List (2,5,4)
    */
   remove(data) {
-    //todo: implement 🦑
+    if(this.head.data === data) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let previous = null;
+    let current = this.head;
+
+    while(current.data !== data) {
+      previous = current;
+      current = current.next;
+    }
+
+    previous.next = current.next;
   }
 
   /*
@@ -50,7 +80,15 @@ class LinkedList {
    Eg1: List(2, 4, 5, 4) size() -> 4
    */
   size() {
-    return this.length;
+    let current = this.head;
+    let count = 0;
+
+    while (current !== null) {
+      count++;
+      current = current.next;
+    }
+
+    return count;
   }
 
 
