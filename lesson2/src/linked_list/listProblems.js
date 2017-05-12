@@ -1,6 +1,8 @@
 // const stack
 class ListProblems {
-
+  constructor() {
+    this.len = 0;
+  }
   /*
    This method should remove all duplicates from an integer list.
    It will take an unsorted list as a parameter, and should return the list
@@ -14,14 +16,15 @@ class ListProblems {
    */
   static removeDuplicates(list) {
     //todo : implement !
-    
+
     let current = list.head;
-    let hash ={};
+    // my faviorate solution with hash;) if you don't like and you think it's cheating then I did it with loops down, btw this was simple!
+    let hash = {};
     let prev;
-    while(current !== null){
-      if(current.data in hash){// you can do: "hash[current.data]" as well
+    while (current !== null) {
+      if (current.data in hash) {// you can do: "hash[current.data]" as well
         prev.next = current.next;
-      }else{
+      } else {
         hash[current.data] = true; // Or to my name;_) 
         prev = current;
       }
@@ -39,10 +42,7 @@ class ListProblems {
     //   }
     //   current = current.next;
     // }
-
-
     return list;
-
   }
 
   /*
@@ -55,8 +55,26 @@ class ListProblems {
    Hint1: you can do this with recursion, but i think iterative with 2
    pointers should be easier.
    */
+
   static kthToLast(list, k) {
     //todo: do your magic ! ️‍
+    if (!list.head) return null;
+    let main_pointer = list.head;
+    let ref_pointer = list.head;
+    // this I really enoyed it
+    let count = 0;
+    while (count < k) {
+      if (ref_pointer == null) {
+        return -1;
+      }
+      ref_pointer = ref_pointer.next;
+      count++
+    }
+    while (ref_pointer.next) {
+      ref_pointer = ref_pointer.next;
+      main_pointer = main_pointer.next;
+    }
+    return main_pointer.data;
   }
 
   /*
@@ -76,6 +94,27 @@ class ListProblems {
    */
   static detectCycle(list) {
     //todo: supoer magic!
+    
+    // this was really tough one.. and nice with nice solution(on paper as well..)
+    let slow = list.head;
+    let fast = list.head.next;
+
+    while (fast && fast.next) {
+      if (slow === fast) {
+        console.log('it is equal')
+        slow = list.head;
+        while (slow !== fast.next) {
+          slow = slow.next;
+          fast = fast.next;
+        }
+        fast.next = null;
+        console.log("point where the loop started to null and return true")
+        return true;
+      }
+      fast = fast.next.next;
+      slow = slow.next;
+    }
+    return false;
   }
 
 }

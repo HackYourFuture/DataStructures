@@ -20,12 +20,12 @@ describe("Problems", function () {
     console.log("\nCreating the list");
     let list = new LinkedList();
     [5, 9, 2, 9, 3, 7].forEach(e => list.append(e));
-    console.log("Done.. list now is: " + list.toArray());
-    console.log("Trying to find 2nd to last element..");
+    // console.log("Done.. list now is: " + list.toArray());
+    // console.log("Trying to find 2nd to last element..");
 
     let kthToLast = ListProblems.kthToLast(list, 2);
     console.log("Done.. 2nd to last element found is " + kthToLast);
-    expect(kthToLast.toEqual(9));
+    expect(kthToLast).toEqual(9);
   });
 
   it("should find the last element in List(5,9,2,9,3,7)", function () {
@@ -33,11 +33,11 @@ describe("Problems", function () {
     let list = new LinkedList();
     [5, 9, 2, 9, 3, 7].forEach(e => list.append(e));
     console.log("Done.. list now is: " + list.toArray());
-    console.log("Trying to find 2nd to last element..");
+    // console.log("Trying to find 2nd to last element..");
 
     let kthToLast = ListProblems.kthToLast(list, 0);
     console.log("Done.. 2nd to last element found is " + kthToLast);
-    expect(kthToLast.toEqual(7));
+    expect(kthToLast).toEqual(7);
   });
 
   it("should detect that list has a cycle", function () {
