@@ -88,17 +88,15 @@ class ListProblems {
     let p1 = list.head;
     let p2 = list.head;
 
-  // basic condition for loop to exist
-  while (p2.next.next) {
-    // console.log('P1 = %d, P2 = %d', p1.data, p2.data);
-    p1 = p1.next;
-    p2 = p2.next.next;
+    while (p2.next.next) {
+      p1 = p1.next;
+      p2 = p2.next.next;
 
-    if (p1 == p2) {
-      return true;
+      if (p1 == p2) {
+        return true;
+      }
     }
-  }
-  return false;
+    return false;
   }
 
 }
