@@ -12,7 +12,28 @@ class ListProblems {
    Hint2: I'll let you use a special unicorn array, but you can do without
    */
   static removeDuplicates(list) {
-    //todo : implement !
+      if (!list.head || !list.head.next) {
+        return;
+      }
+
+      let prev;
+      let curr;
+      let nodes = {};
+
+      prev = list.head;
+      curr = prev.next;
+      nodes[prev.data] = true;
+
+      while (curr) {
+          let data = curr.data;
+          if (nodes[data]) {
+              prev.next = curr.next;
+          } else {
+              nodes[data] = true;
+              prev = curr;
+          }
+        curr = curr.next;
+      }
   }
 
   /*
@@ -26,7 +47,26 @@ class ListProblems {
    pointers should be easier.
    */
   static kthToLast(list, k) {
-    //todo: do your magic ! ️‍
+      if (k < 0) {
+        return;
+      }
+      
+      let previous = list.head;
+      let current = list.head;
+      
+      for (let i = 0; i < k ; i++) {
+        current = current.next;
+        if (!current) {
+          return;
+        }
+      }
+      
+      while (current.next) {
+        previous = previous.next;
+        current = current.next;
+      }
+      
+      return previous.data;
   }
 
   /*
@@ -45,7 +85,18 @@ class ListProblems {
     maybe move them at different speed?
    */
   static detectCycle(list) {
-    //todo: supoer magic!
+    let p1 = list.head;
+    let p2 = list.head;
+
+    while (p2.next.next) {
+      p1 = p1.next;
+      p2 = p2.next.next;
+
+      if (p1 == p2) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
