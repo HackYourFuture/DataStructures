@@ -21,8 +21,20 @@ class LinkedList {
   append(data) {
     // first create a Node with the data
     let node = new Node(data);
+    let currentNode = this.head;
+    if (!currentNode) {
+      this.head = node;
+      this.length++;
+      return node;
+    }
 
-    //todo: implement 🦑
+    // 2nd use-case: a non-empty list
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = node;
+    this.length++;
+    return node;
 
   }
 
@@ -33,7 +45,14 @@ class LinkedList {
   prepend(data) {
     // first create a Node with the data
     let node = new Node(data);
-    //todo: implement 🦑
+    const temp = this.head;
+
+    // Point head to the new Node
+    this.head = node;
+
+    // Add the rest of node behind the new first Node
+    this.head.next = temp;
+    this.length++;
   }
 
   /*
@@ -42,7 +61,20 @@ class LinkedList {
    Eg2: List(2, 4, 5, 4) remove(4)  -> List (2,5,4)
    */
   remove(data) {
-    //todo: implement 🦑
+    let search = this.head;
+    if (search.data === data) {
+      search.next = search.next.next;
+      this.length--;
+      return;
+    }
+    while (search.next) {
+      if (search.next.data === data) {
+        search.next = search.next.next;
+        this.length--;
+        return;
+      }
+      search = search.next;
+    }
   }
 
   /*

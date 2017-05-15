@@ -12,7 +12,22 @@ class ListProblems {
    Hint2: I'll let you use a special unicorn array, but you can do without
    */
   static removeDuplicates(list) {
-    //todo : implement !
+    console.log("yes! i got this list = " + list.toArray());
+    let set = [];
+    let previous = null;
+    let runner = list.head;
+    console.log("first element is  = " + runner.data);
+    while (runner) {
+      console.log(runner.data);
+      if (set.indexOf(runner.data) > 0) {
+        previous.next = runner.next;
+        runner = runner.next;
+      } else {
+        set.push(runner.data);
+        previous = runner;
+        runner = runner.next;
+      }
+    }
   }
 
   /*
@@ -26,7 +41,27 @@ class ListProblems {
    pointers should be easier.
    */
   static kthToLast(list, k) {
-    //todo: do your magic ! ️‍
+    if (!list.head) {
+      return null;
+    }
+
+    // slow pointer traverses the list normally
+    // fast pointer traverses the list starting k elements after.
+    let slow = list.head;
+    let fast = list.head;
+    for (let i = 0; i < k; i++) {
+      if (fast === null) {
+        return -1;
+      }
+      fast = fast.next;
+    }
+    // traverse until fast reaches the end
+    while (fast.next) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+    // then the slow pointer is at position end-k
+    return slow.data;
   }
 
   /*
@@ -42,10 +77,21 @@ class ListProblems {
    This method should detect if the given list contains a cycle.
 
    Hint1: you should definitely traverse the list with 2 pointers...
-    maybe move them at different speed?
+   maybe move them at different speed?
    */
   static detectCycle(list) {
-    //todo: supoer magic!
+    let slowPointer = list.head,
+      fastPointer = list.head;
+
+    while (slowPointer && fastPointer && fastPointer.next) {
+      slowPointer = slowPointer.next;
+      fastPointer = fastPointer.next.next;
+
+      if (slowPointer === fastPointer) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
