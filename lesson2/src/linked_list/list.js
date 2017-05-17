@@ -27,9 +27,10 @@ class LinkedList {
       this.length++;
     } else {
       let current = this.head;
-      while (current.next) {
+      while (current.next !== null) {
         current = current.next;
       }
+      // 2 -> 3 -> 3 -> null
       current.next = node;
       this.length++
     }
@@ -69,7 +70,7 @@ class LinkedList {
     let current = this.head;
     let count = 0;
     while(count < this.length){
-      if(data === current.next.data){
+      if(data === current.data){
         current.next = current.next.next;
         this.length--
         return;

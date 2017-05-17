@@ -38,10 +38,10 @@ describe("LinkedList", function () {
     expect(list.size()).toEqual(4);
 
     console.log("\nNow trying to delete the first (since it should be the only one left) occurrence of 2..");
-    list.remove(2);
+    list.remove(9999);
     console.log("Done.. list now is: " + list.toArray());
     console.log("and I expect the list size to be 3, and in fact is : " + list.size());
-    expect(list.size()).toEqual(3);
+    expect(list.size()).toEqual(4);
   });
 
 });
