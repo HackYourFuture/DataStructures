@@ -61,22 +61,19 @@ class LinkedList {
    Eg2: List(2, 4, 5, 4) remove(4)  -> List (2,5,4)
    */
   remove(data) {
-    // todo: implement me 🦑️
-    if(!this.head) return null;
-    if(this.head.data === data){
-      this.head = this.head.next;
+    let search = this.head;
+    if (search.data === data) {
+      search.next = search.next.next;
+      this.length--;
       return;
     }
-    let current = this.head;
-    let count = 0;
-    while(count < this.length){
-      if(data === current.data){
-        current.next = current.next.next;
-        this.length--
+    while (search.next) {
+      if (search.next.data === data) {
+        search.next = search.next.next;
+        this.length--;
         return;
       }
-      current = current.next;
-      count++
+      search = search.next;
     }
   }
 

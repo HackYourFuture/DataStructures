@@ -90,11 +90,11 @@ class ListProblems {
    This method should detect if the given list contains a cycle.
 
    Hint1: you should definitely traverse the list with 2 pointers...
-    maybe move them at different speed?
+   maybe move them at different speed?
    */
   static detectCycle(list) {
     //todo: supoer magic!
-    
+
     // this was really tough one.. and nice with nice solution(on paper as well..)
     let slow = list.head;
     let fast = list.head.next;
@@ -113,10 +113,21 @@ class ListProblems {
       }
       fast = fast.next.next;
       slow = slow.next;
-    }
-    return false;
-  }
+      // let slowPointer = list.head,
+      //   fastPointer = list.head;
 
+      // while (slowPointer && fastPointer && fastPointer.next) {
+      //   slowPointer = slowPointer.next;
+      //   fastPointer = fastPointer.next.next;
+
+      //   if (slowPointer === fastPointer) {
+      //     return true;
+      //   }
+      // }
+      return false;
+    }
+
+  }
 }
 
 module.exports = ListProblems;
