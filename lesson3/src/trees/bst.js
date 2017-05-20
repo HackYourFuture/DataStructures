@@ -12,8 +12,28 @@ class BinarySearchTree {
   }
 
   add(data) {
-    const node = new Node(data);
-    // insert in correct place
+    const newnode = new Node(data);
+    if (this.root == null) {
+        this.root = newnode
+        return
+    }
+    let nav = this.root
+    while (true)
+    {
+        if(data < nav.data) {
+            if (nav.left == null) {
+                nav.left = newnode
+                break
+            }
+            nav = nav.left
+        } else {
+            if (nav.right == null) {
+                nav.right = newnode
+                break
+            }
+            nav = nav.right
+        }
+    }
   }
 
   remove(data) {
@@ -42,15 +62,27 @@ class BinarySearchTree {
    */
 
   preOrder(node, fn) {
-    // todo: implement me
+    if (node != null) {
+        fn(node)
+        this.preOrder(node.left, fn)
+        this.preOrder(node.right, fn)
+    }
   }
 
   inOrder(node, fn) {
-    // todo: implement me
+    if (node != null) {
+        this.inOrder(node.left, fn)
+        fn(node)
+        this.inOrder(node.right, fn)
+    }
   }
 
   postOrder(node, fn) {
-    // todo: implement me
+    if (node != null) {
+        this.postOrder(node.left, fn)
+        this.postOrder(node.right, fn)
+        fn(node)
+    }
   }
 
   getMin(node) {
