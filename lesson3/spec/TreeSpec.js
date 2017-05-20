@@ -59,4 +59,10 @@ describe("Tree", function () {
     expect(max).toBe(3);
   });
 
+  it("should delete number from the tree", function () {
+    //remove and get array of the remaining nodes(element(s))..
+    let remaining = bst.remove(3);
+    expect(remaining).toEqual([1, 2, 5, 7, 9, 10 ]);
+  });
+
 });

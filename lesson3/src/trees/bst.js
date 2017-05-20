@@ -34,6 +34,33 @@ class Node {
     }
     return false;
   }
+
+  remove(root, data) {
+    if (root === null) return root;
+    if (root.data > data) {
+      root.left = this.remove(root.left, data);
+    } else if (root.data < data) {
+      root.right = this.remove(root.right, data);
+    } else { // means the data is root.data..
+      if (root.left === null) {
+        return root.right;
+      } else if (root.right === null) {
+        return root.left;
+      }
+
+      root.data = this.getMin(root.right);
+      root.right = this.remove(root.right, root.data);
+    }
+    return root;
+  }
+
+  getMin(root) {
+    if (root.left === null) {
+      return root.data;
+    } else {
+      return this.getMin(root.left);
+    }
+  }
 }
 
 class BinarySearchTree {
@@ -83,6 +110,10 @@ class BinarySearchTree {
 
   remove(data) {
     // there is a lot of ways of doing this one, ask for help if you get stuck
+    this.root.remove(this.root, data);
+    let arr = [];
+    this.inOrder(this.root, (e) => arr.push(e.data));
+    return arr;
   }
 
   contains(data) {
@@ -163,12 +194,18 @@ class BinarySearchTree {
 
   getMin(root) {
     // todo: implement me
-    let min = root.data;
-    while (root.left !== null) {
-      min = root.left.data;
-      root = root.left;
+    // let min = root.data;
+    // while (root.left !== null) {
+    //   min = root.left.data;
+    //   root = root.left;
+    // }
+    // return min;
+    //recursively
+    if (root.left === null) {
+      return root.data;
+    } else {
+      return this.getMin(root.left);
     }
-    return min;
   }
 
   getMax(root) {
@@ -183,9 +220,9 @@ class BinarySearchTree {
 
   getHeight(root) {
     // todo: implement me
-		if(root === null)return 0;
+    if (root === null) return 0;
 
-		return (1+ Math.max(this.getHeight(root.left),this.getHeight(root.right)));
+    return (1 + Math.max(this.getHeight(root.left), this.getHeight(root.right)));
   }
 
 
