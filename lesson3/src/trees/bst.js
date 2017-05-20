@@ -14,7 +14,7 @@ class BinarySearchTree {
   add(data) {
     const node = new Node(data);
     if(!this.root) {
-      this.root = new Node(data);
+      this.root = node;
     } else {
       let current = this.root;
       while(current) {
@@ -36,7 +36,8 @@ class BinarySearchTree {
       }
     }
   }
-
+  
+  // The remove function is very complicated, it will be great if you give us explanation in the class.
   remove(data) {
     const removeNode = function(node, data) {
       if (!node) {
@@ -147,8 +148,8 @@ class BinarySearchTree {
       return current.data;
   }
 
-  getHeight(node = this.root) {
-    if(!node) {
+  // I find the function below hard. Some explanation will be great.
+  getHeight(node = this.root) {      if(!node) {
       return -1;
     }
     let left = this.getHeight(node.left);
