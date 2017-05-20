@@ -8,28 +8,21 @@ class Stack {
    Push should insert the value into the queue
    */
   push(value) {
-    this.stack.push(value)
-    this.top += 1
+    this.stack.push(value);
   }
 
   /*
    Pop should return the value and remove it from the queue
    */
   pop() {
-    this.top -= 1
-    return this.stack.pop()
+    return this.stack.pop();
   }
 
   /*
    Peek should return the value without removing it from the queue
    */
   peek() {
-    if (this.top != 0) {
-      this.frontElement = this.stack[(this.top - 1)]
-      return this.frontElement
-    } else {
-      return null
-    }
+    return this.stack[this.stack.length - 1];
   }
 
   /*
@@ -37,18 +30,14 @@ class Stack {
    unless you removed top, then you should something trivial here..
    */
   length() {
-    return this.top; // not if you removed it 😉
+    return this.stack.length; // not if you removed it 😉
   }
 
   /*
    Should return a boolean indicating if queue is empty
    */
   isEmpty() {
-    if (this.top == 0) {
-      return true
-    } else {
-      return false
-    }
+    return this.stack.length < 1;
   }
 
 }
