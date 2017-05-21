@@ -48,7 +48,9 @@ class Graph {
 
     dfs(v) {
         //this.display()
-        console.log(this.adjlist)
+        for (let key in this.adjlist) {
+            console.log(key , " :" , this.adjlist[key].toArray())
+        }
     }
 }
 module.exports = Graph;
