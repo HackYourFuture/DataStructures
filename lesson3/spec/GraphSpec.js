@@ -17,11 +17,11 @@ describe("Graphs", function () {
 
 
   it("should be able to traverse in BFS order", function () {
-    expect(graph.bfs(1)).toEqual([1,2,4,3,5]);
+    expect(gra.bfs(1)).toEqual([1,2,4,3,5]);
   });
 
   it("should be able to traverse in DFS order", function () {
-    expect(graph.bfs(1)).toEqual([1,2,3,4,5]);
+    expect(gra.dfs(1)).toEqual([1,2,3,4,5]);
   });
 
 });

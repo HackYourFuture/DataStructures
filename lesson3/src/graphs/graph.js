@@ -2,13 +2,15 @@ let LinkedList = require("../../../lesson2/src/linked_list/list")
 let Stack = require("../../../lesson1/src/stacks_queues/stack")
 let Queue = require("../../../lesson1/src/stacks_queues/queue")
 
+
+
 class Graph {
     // E is number of edges
     constructor() {
         this.ne = 0
         // adjlist is a dictionary of LinkedLists
         // For every vertex (key), we maintain a list of its neighbours (value)
-        this.adjlist = new Map()
+        this.adjlist = {}
     }
 
     // addEdge(1,2)
@@ -20,13 +22,13 @@ class Graph {
     */
     addEdge(from, to) {
     //add "to" in the LinkedList of "from"
-        if(!this.adjlist.has(from)) {
+        if(!this.adjlist[from]) {
             this.adjlist[from] = new LinkedList()
         }
         this.adjlist[from].append(to)
         this.ne += 1
 
-        if(!this.adjlist.has(to)) {
+        if(!this.adjlist[to]) {
             this.adjlist[to] = new LinkedList()
         }
         this.adjlist[to].append(from)
@@ -45,7 +47,8 @@ class Graph {
     }
 
     dfs(v) {
-        this.display()
+        //this.display()
+        console.log(this.adjlist)
     }
 }
 module.exports = Graph;
