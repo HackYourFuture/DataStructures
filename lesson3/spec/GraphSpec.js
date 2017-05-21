@@ -10,9 +10,10 @@ describe("Graphs", function () {
     gra.addEdge(2,3);
     gra.addEdge(2,5);
     gra.addEdge(3,4);
+    gra.addEdge(3,1);
     // this graph is an undirected graph
     // so each edge counts twice
-    expect(gra.ne).toBe(10);
+    expect(gra.ne).toBe(12);
   });
 
 
