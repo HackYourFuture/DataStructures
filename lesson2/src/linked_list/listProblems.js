@@ -1,3 +1,6 @@
+let LinkedList = require("./list");
+
+
 class ListProblems {
 
   /*
@@ -13,6 +16,30 @@ class ListProblems {
    */
   static removeDuplicates(list) {
     //todo : implement !
+
+    // check if data is in list or not
+    function include(list, data) {
+      let currentNode = list.head;
+      while (currentNode) {
+        if(currentNode.data === data) {
+          return true;
+        } else {
+          currentNode = currentNode.next;
+        }
+      }
+      return false;
+    }
+
+    let nonDuplicates = new LinkedList();
+    let currentNode = list.head;
+    while (currentNode) {
+      if(include(nonDuplicates, currentNode.data)) {
+        currentNode = currentNode.next;
+      } else {
+        nonDuplicates.append(currentNode.data)
+      }
+    }
+    list.head = nonDuplicates.head;
   }
 
   /*
@@ -27,6 +54,25 @@ class ListProblems {
    */
   static kthToLast(list, k) {
     //todo: do your magic ! ️‍
+    let p1 = null;
+    let p2 = list.head;
+    let p3;
+
+    while (p2) {
+      p3 = p2.next;
+      p2.next = p1;
+      p1 = p2;
+      p2 = p3;
+    }
+
+    list.head = p1;
+    //return list.toArray()[k];
+    let currentNode = list.head;
+    while (k !== 0) {
+      currentNode = currentNode.next;
+      k--;
+    }
+    return currentNode.data;
   }
 
   /*
