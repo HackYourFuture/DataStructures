@@ -22,9 +22,12 @@ class StackProblems {
     for (let i = 0; i < string.length; i++) {
       let char = string.charAt(i);
       // todo: do you'r magic ! 🙌
+      if (char === '(' || char === ')') {
+        stack.push(char)
+      }
     }
 
-    return stack.isEmpty();
+    return stack.length() % 2 === 0;
   }
 }
 
