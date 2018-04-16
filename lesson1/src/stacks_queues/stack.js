@@ -29,7 +29,7 @@ class Stack {
    */
   peek() {
     // todo: do stuff
-    return this.stack[this.top]
+    return this.stack[this.top-1]
   }
 
   /*
