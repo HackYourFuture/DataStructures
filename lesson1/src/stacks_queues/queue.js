@@ -1,4 +1,4 @@
-import ArrayProblems from '../arrays/arrayProblems.js'
+const ArrayProblems =require( '../arrays/arrayProblems.js')
 class Queue {
 
   constructor() {

@@ -12,7 +12,7 @@ class Stack {
     this.stack[this.top] = value
     this.top++
   }
-
+ 
   /*
    Pop should return the value and remove it from the queue
    */
@@ -26,6 +26,8 @@ class Stack {
     for (let i = 0; i < this.top - 1; i++) {
       newStack[i] = this.stack[i]
     }
+    this.stack=newStack
+    this.top--
     return poppedItem
   }
 
@@ -50,7 +52,7 @@ class Stack {
    */
   isEmpty() {
     // todo: do stuff
-    return this.top>0?true:false
+    return this.top<=0?true:false
   }
 
 }
