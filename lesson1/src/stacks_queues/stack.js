@@ -18,10 +18,15 @@ class Stack {
    */
   pop() {
     // todo: do stuff
-    if (this.top > 0) {
-      this.stack.pop()
-      this.top--
+    if (this.top <= 0) {
+      return "Empty Stack"
     }
+    let newStack = []
+    let poppedItem = this.stack[this.top - 1]
+    for (let i = 0; i < this.top - 1; i++) {
+      newStack[i] = this.stack[i]
+    }
+    return poppedItem
   }
 
   /*
