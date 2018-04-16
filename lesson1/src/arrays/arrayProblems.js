@@ -7,9 +7,10 @@ class ArrayProblems {
    Eg2: [1,1,1,2] -> false
    */
   static allEqualElements(array) {
-    for (let i = 0; i < array.length; i++) {
-      for (let j = i; j < array.length; j++) {
-        // todo: do stuff here
+    let firstElement = array[0]
+    for (let i = 1; i < array.length; i++) {
+      if (array[i] !== firstElement) {
+        return false;
       }
     }
     return true;
@@ -21,14 +22,20 @@ class ArrayProblems {
    Eg2: [-3,-1,0,5] -> 5
    */
   static getMax(array) {
-    // todo: do stuff here
+    return Math.max(...array)
   }
 
   /*
    Can you implement getMax again without using any js collection method?
    */
   static getMax2(array) {
-    // todo: 🙌 do magic !
+    let max = -Infinity;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] > max) {
+        max = array[i]
+      }
+    }
+    return max
   }
 
   /*
@@ -39,8 +46,13 @@ class ArrayProblems {
 
    This method should perform n left rotations on the array
    */
-  static rotateLeft(array, n){
-    // todo: 🙌 do magic !
+  static rotateLeft(array, n) {
+    let modifiedArray = [];
+    for (let i = 0; i < array.length; i++){
+      let newPosition = (i + n) % array.length;
+      modifiedArray[i] = array[newPosition]
+    }
+    return modifiedArray
   }
 }
 module.exports = ArrayProblems;
