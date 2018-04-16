@@ -21,7 +21,17 @@ class StackProblems {
     let stack = new Stack();
     for (let i = 0; i < string.length; i++) {
       let char = string.charAt(i);
-      // todo: do you'r magic ! 🙌
+      if(char==="(")
+      {
+        stack.push(char)
+      }
+      if(char===")")
+      {
+        if(stack.isEmpty()){
+          return false
+        }
+          stack.pop()
+      }
     }
 
     return stack.isEmpty();
