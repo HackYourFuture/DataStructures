@@ -9,13 +9,26 @@ class Stack {
    */
   push(value) {
     // todo: do stuff
+    this.stack[this.top] = value
+    this.top++
   }
-
+ 
   /*
    Pop should return the value and remove it from the queue
    */
   pop() {
     // todo: do stuff
+    if (this.top <= 0) {
+      return "Empty Stack"
+    }
+    let newStack = []
+    let poppedItem = this.stack[this.top - 1]
+    for (let i = 0; i < this.top - 1; i++) {
+      newStack[i] = this.stack[i]
+    }
+    this.stack=newStack
+    this.top--
+    return poppedItem
   }
 
   /*
@@ -23,6 +36,7 @@ class Stack {
    */
   peek() {
     // todo: do stuff
+    return this.stack[this.top-1]
   }
 
   /*
@@ -38,6 +52,7 @@ class Stack {
    */
   isEmpty() {
     // todo: do stuff
+    return this.top<=0?true:false
   }
 
 }
