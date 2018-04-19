@@ -21,9 +21,17 @@ class LinkedList {
   append(data) {
     // first create a Node with the data
     let node = new Node(data);
-
     //todo: implement 🦑
-
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let nextNode = this.head;
+      while (nextNode.next) {
+        nextNode = nextNode.next;
+      }
+      nextNode.next = node;
+    }
+    this.length++;
   }
 
   /*
@@ -34,6 +42,13 @@ class LinkedList {
     // first create a Node with the data
     let node = new Node(data);
     //todo: implement 🦑
+    if (!this.head) {
+      this.head = node;
+      return;
+    }
+    node.next = this.head;
+    this.head = node;
+    this.length++;
   }
 
   /*
@@ -43,6 +58,24 @@ class LinkedList {
    */
   remove(data) {
     //todo: implement 🦑
+    if (this.size() === 0) return false;// If no elements are in the list
+
+    // If the item is at the head, point the head to the one after it
+    if (this.head.data === data) {
+      this.head = this.head.next;
+      this.length--;
+    }
+
+    let lastNode = this.head;
+    let currentNode = this.head.next;
+    while (currentNode) {
+      if (currentNode.data === data) {
+        this.length--;
+        return lastNode.next = currentNode.next;
+      }
+      currentNode = currentNode.next;
+      lastNode = lastNode.next;
+    }
   }
 
   /*
