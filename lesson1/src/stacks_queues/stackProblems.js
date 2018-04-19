@@ -19,12 +19,19 @@ class StackProblems {
    */
   static balancedParenthesis(string) {
     let stack = new Stack();
+    if(string.indexOf("(") > string.indexOf(")")) return false;
+    if(string.lastIndexOf("(") > string.lastIndexOf(")")) return false;
+
+    let openPharantesis = 0;
+    let closePharantesis = 0;
     for (let i = 0; i < string.length; i++) {
       let char = string.charAt(i);
       // todo: do you'r magic ! 🙌
+      if (char === "(") openPharantesis++ ;
+      if (char === ")") closePharantesis++ ;
     }
 
-    return stack.isEmpty();
+    return openPharantesis==closePharantesis;
   }
 }
 
