@@ -13,6 +13,33 @@ class ListProblems {
    */
   static removeDuplicates(list) {
     // todo ... you know what to do
+    let checkedAgainstNode = list.head;
+
+    for (let i = 0; i < list.size(); i++) {
+      // don't go to the element at next if it's the first iteration
+      if (i !== 0) checkedAgainstNode = checkedAgainstNode.next;
+
+      // if (!checkedAgainstNode) break;// It will keep looping till next of some node is null so break out the loop then
+
+      let currentNode = checkedAgainstNode.next;// node being compared with checkedAgainstNode
+      let previousNode = checkedAgainstNode;// node before that which break the link between itself and the duplicate item if existed
+
+      for (let y = i; y < list.size(); y++) {
+        if (!currentNode) break;// It will keep looping till next of some node is null so break out the loop then
+
+        if (currentNode.data === checkedAgainstNode.data) {
+          // there is one duplicate make the node before it point at the one after it 
+          previousNode.next = currentNode.next;
+          currentNode = previousNode.next;
+          list.length--;
+        } else {
+          previousNode = previousNode.next;// 1 step forward
+          currentNode = currentNode.next; // 1 step forward
+        }
+      }
+    }
+    return list;
+
   }
 
   /*
@@ -26,7 +53,22 @@ class ListProblems {
    pointers should be easier.
    */
   static kthToLast(list, k) {
-   // todo ✏️
+    let node = list.head;// used to loop through the list
+
+    let wantedIndex = 0; // will represent the k-th to end index from the beginning (length - k)
+
+    while (node) {
+      wantedIndex++;
+      node = node.next;
+    }
+
+    wantedIndex -= k; // get the index in the right order
+    node = list.head;// reset this so that we can loop again
+
+    for (let i = 0; i < wantedIndex - 1; i++) {
+      node = node.next; // keep overwriting it till the last element
+    }
+    return node.data;
   }
 
   /*
@@ -46,6 +88,19 @@ class ListProblems {
    */
   static detectCycle(list) {
     // todo: super magic 2 speed moving pointers ! 🎉
+
+    let node = list.head;
+
+
+    while (node) {
+      // Okay I've had help from the internet but could find no other way
+      if (node.seen) {
+        return true;
+      }
+      node.seen = true;
+      node = node.next;
+    }
+    return false;
   }
 
 }
