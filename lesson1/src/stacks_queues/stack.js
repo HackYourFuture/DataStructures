@@ -9,6 +9,8 @@ class Stack {
    */
   push(value) {
     // todo: do stuff
+    this.stack.push(value);
+    this.top++;
   }
 
   /*
