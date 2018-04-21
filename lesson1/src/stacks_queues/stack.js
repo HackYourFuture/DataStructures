@@ -1,7 +1,7 @@
 class Stack {
   constructor() {
     this.stack = [];
-    this.top = 0; // feel free to use or remove top
+    
   }
 
   /*
@@ -9,6 +9,7 @@ class Stack {
    */
   push(value) {
     // todo: do stuff
+    return this.stack.push(value)
   }
 
   /*
@@ -16,6 +17,7 @@ class Stack {
    */
   pop() {
     // todo: do stuff
+    return this.stack.pop();
   }
 
   /*
@@ -23,6 +25,8 @@ class Stack {
    */
   peek() {
     // todo: do stuff
+
+    return this.stack.length !== 0 ? this.stack[(this.stack.length)-1] : null;
   }
 
   /*
@@ -30,7 +34,7 @@ class Stack {
    unless you removed top, then you should something trivial here..
    */
   length() {
-    return this.top; // not if you removed it 😉
+    return this.stack.length; // not if you removed it 😉
   }
 
   /*
@@ -38,6 +42,7 @@ class Stack {
    */
   isEmpty() {
     // todo: do stuff
+    return this.stack.length == 0;
   }
 
 }

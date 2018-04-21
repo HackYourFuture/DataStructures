@@ -9,7 +9,8 @@ class ArrayProblems {
   static allEqualElements(array) {
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
-        // todo: do stuff here
+        // todo: do stuff herecd
+        if( array[i] !== array[j] ) return false;
       }
     }
     return true;
@@ -22,6 +23,7 @@ class ArrayProblems {
    */
   static getMax(array) {
     // todo: do stuff here
+    return Math.max(...array)
   }
 
   /*
@@ -29,6 +31,14 @@ class ArrayProblems {
    */
   static getMax2(array) {
     // todo: 🙌 do magic !
+    let largest = Number.NEGATIVE_INFINITY;
+
+    for (let i=0; i<array.length; i++) {
+      if (array[i] > largest) {
+        largest = array[i];
+      } 
+    }
+    return largest;
   }
 
   /*
@@ -41,6 +51,15 @@ class ArrayProblems {
    */
   static rotateLeft(array, n){
     // todo: 🙌 do magic !
+    let newArray=[];
+    for(let i=0; i<(array.length)-n;i++){
+      newArray.push(array[i+n])
+    }
+    for(let i=0; i<n;i++){
+      newArray.push(array[i])
+    }
+
+    return newArray;
   }
 }
 module.exports = ArrayProblems;
