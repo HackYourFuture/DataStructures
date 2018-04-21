@@ -1,3 +1,5 @@
+
+
 class ListProblems {
 
   /*
@@ -13,6 +15,20 @@ class ListProblems {
    */
   static removeDuplicates(list) {
     // todo ... you know what to do
+    let arrayList = list.toArray();
+    let seen = {};
+    let out = [];
+    let len = arrayList.length;
+    let j = 0;
+    for(let i = 0; i < len; i++) {
+         let item = arrayList[i];
+         if(seen[item] !== 1) {
+               seen[item] = 1;
+               out[j++] = item;
+         }
+    }
+    return out;
+
   }
 
   /*
