@@ -15,10 +15,17 @@ class StackQueue {
 
   dequeue() {
     // todo: we know what to do ... right?
+    if(this.outbox.isEmpty()){
+      while(!this.inbox.isEmpty()){
+        this.outbox.push(this.inbox.pop());
+      }
+    }
+    return this.outbox.pop();
   }
 
   peek() {
     // todo: piece of cake 🍰 !
+    return this.outbox.isEmpty() ? this.inbox[length + 1] : this.outbox.peek();
   }
 }
 module.exports = StackQueue;
