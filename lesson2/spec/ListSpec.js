@@ -9,6 +9,7 @@ describe("LinkedList", function () {
     list.append(4);
     console.log("Done.. list now is");
     console.log(list.toArray());
+    console.log("a7eh", list)
   });
 
   it("should have length 3 after appending 3 elements", function () {
