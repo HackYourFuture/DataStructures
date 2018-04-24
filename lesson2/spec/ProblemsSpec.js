@@ -8,6 +8,7 @@ describe("Problems", function () {
     console.log("\nCreating the list");
     let list = new LinkedList();
     [5, 9, 2, 9, 3, 3, 7].forEach(e => list.append(e));
+    console.log("This is the mysterious list", list)
     console.log("Done.. list now is: " + list.toArray());
     console.log("Trying to remove duplicates..");
 
@@ -20,6 +21,7 @@ describe("Problems", function () {
     console.log("\nCreating the list");
     let list = new LinkedList();
     [5, 9, 2, 9, 3, 7].forEach(e => list.append(e));
+    console.log("a7eh2", list)
     console.log("Done.. list now is: " + list.toArray());
     console.log("Trying to find 2nd to last element..");
 

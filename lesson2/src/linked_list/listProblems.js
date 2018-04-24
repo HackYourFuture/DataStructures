@@ -13,6 +13,28 @@ class ListProblems {
    */
   static removeDuplicates(list) {
     // todo ... you know what to do
+    console.log(list.head.next)
+    if (list.head === null || list.head.next === null) {
+      console.log("One or less elements in the list");
+    }
+    let node1 = list.head;
+    let node2 = node1.next;
+    let nodes = {};
+    nodes[node1.data] = true;
+    while (node2 !== null) {
+      let data = node2.data
+      console.log(data, nodes)
+      if (nodes[data]) {
+        node1.next = node2.next;
+        // list.length--;
+      } else {
+        nodes[data] = true;
+        node1 = node2;
+
+      }
+      console.log(list)
+      node2 = node2.next;
+    }
   }
 
   /*
@@ -26,7 +48,24 @@ class ListProblems {
    pointers should be easier.
    */
   static kthToLast(list, k) {
-   // todo ✏️
+    // console.log("Magical", list)
+    // todo ✏️
+    let pointer1 = list.head;
+    let pointer2 = list.head;
+    for (let i = 0; i <= k; i++) {
+      if (pointer2 === null) {
+        return;
+      }
+      pointer2 = pointer2.next
+    }
+    if (pointer2 === null) {
+      return;
+    }
+    while (pointer2 !== null) {
+      pointer1 = pointer1.next;
+      pointer2 = pointer2.next;
+    }
+    return pointer1.data;
   }
 
   /*
@@ -46,6 +85,16 @@ class ListProblems {
    */
   static detectCycle(list) {
     // todo: super magic 2 speed moving pointers ! 🎉
+    let pointer1 = list.head;
+    let pointer2 = list.head;
+    while (pointer2.next.next) {
+      pointer1 = pointer1.next;
+      pointer2 = pointer2.next.next;
+      if (pointer1 === pointer2) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
