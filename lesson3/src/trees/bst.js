@@ -13,16 +13,47 @@ class BinarySearchTree {
 
   add(data) {
     const node = new Node(data);
-    // insert in correct place
+
+    if (!this.root) return this.root = node; // base case
+
+    if (data > this.root.data) {
+      if (!this.root.right) {
+        this.root.right = new BinarySearchTree();
+      }
+      this.root.right.add(data);
+    } else {
+      if (!this.root.left) {
+        this.root.left = new BinarySearchTree();
+      }
+      this.root.left.add(data);
+    }
+
   }
 
   remove(data) {
-    // there is a lot of ways of doing this one, ask for help if you get stuck
+    // base case I'm at the element (practically binary search tree as well! I'll make it a null)
+    if (this.root.data === data) {
+      return this.root = null;
+    }
+
+    if (data > this.root.data) {
+      this.root.right.remove(data);
+    } else {
+      this.root.left.remove(data);
+    }
   }
 
   contains(data) {
-    // change me
-    return false;
+    if (this.root.data === data) {
+      return true;
+    }
+
+    if (data > this.root.data) {
+      return this.root.right ? this.root.right.contains(data) : false;
+    } else {
+      return this.root.left ? this.root.left.contains(data) : false;
+    }
+    return false
   }
 
   /*
@@ -41,28 +72,47 @@ class BinarySearchTree {
    bst.preOrder(bst.root, e => console.log(e.data))
    */
 
+  // root > left > right
   preOrder(node, fn) {
-    // todo: implement me
+    if (!node) return;
+    fn(node.root.data); // root
+    this.preOrder(node.root.left, fn); // left
+    this.preOrder(node.root.right, fn); // right
   }
 
   inOrder(node, fn) {
     // todo: implement me
+    if (!node) return;
+    this.inOrder(node.root.left, fn); // left
+    fn(node.root.data); // root
+    this.inOrder(node.root.right, fn);// right
   }
 
+  // left > right > root
   postOrder(node, fn) {
-    // todo: implement me
+    if (!node) return;
+    this.preOrder(node.root.left, fn); // left
+    this.preOrder(node.root.right, fn); // right
+    fn(node.root.data); // root
   }
 
   getMin(node) {
-   // todo: implement me
+    return node.root.left
+      ? this.getMin(node.root.left) // go deeper  
+      : node.root.data; // this is min
   }
 
   getMax(node) {
-    // todo: implement me
+    return node.root.right
+      ? this.getMax(node.root.right) // go deeper  
+      : node.root.data; // this is max
   }
 
   getHeight(node) {
-    // todo: implement me
+    if (!node) return -1; // it has doesn't exist but it was called upon and will be counted unless this is done
+    const leftHeight = this.getHeight(node.root.left); // run this function for the left side
+    const rightHeight = this.getHeight(node.root.right); // run this function for the right side
+    return Math.max(leftHeight, rightHeight) + 1; // + 1 is because there is a parent edge
   }
 
 
@@ -76,7 +126,7 @@ class BinarySearchTree {
     let string = '';
     while (queue.length) {
       const node = queue.shift();
-      string += `${node.data.toString()} `;
+      string += `${node.data} `;
       if (node === newline && queue.length) {
         queue.push(newline);
       }
