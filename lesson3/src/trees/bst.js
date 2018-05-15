@@ -80,6 +80,8 @@ class BinarySearchTree {
     this.preOrder(node.root.right, fn); // right
   }
 
+
+  // sorted left >> root >> right
   inOrder(node, fn) {
     // todo: implement me
     if (!node) return;
@@ -95,6 +97,8 @@ class BinarySearchTree {
     this.preOrder(node.root.right, fn); // right
     fn(node.root.data); // root
   }
+
+
 
   getMin(node) {
     return node.root.left
