@@ -18,13 +18,18 @@ class StackProblems {
    Eg6: "hellow)orld(" -> false
    */
   static balancedParenthesis(string) {
-    let stack = new Stack();
-    for (let i = 0; i < string.length; i++) {
-      let char = string.charAt(i);
-      // todo: do you'r magic ! 🙌
+    const openParenthesesStack = new Stack();
+    for (let letter of string) {
+      if (letter === '(') {
+        openParenthesesStack.push(letter);
+      } else if (letter === ')') {
+        // if there is a closing parantheses for no previous opening one return false
+        if (openParenthesesStack.isEmpty()) return false;
+        // if the stack isn't empty pop one of the opening parantheeses
+        openParenthesesStack.pop();
+      }
     }
-
-    return stack.isEmpty();
+    return openParenthesesStack.isEmpty();
   }
 }
 

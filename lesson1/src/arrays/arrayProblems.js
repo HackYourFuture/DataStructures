@@ -10,6 +10,7 @@ class ArrayProblems {
     for (let i = 0; i < array.length; i++) {
       for (let j = i; j < array.length; j++) {
         // todo: do stuff here
+        if (array[j] !== array[i]) return false;
       }
     }
     return true;
@@ -22,6 +23,7 @@ class ArrayProblems {
    */
   static getMax(array) {
     // todo: do stuff here
+    return Math.max(...array);
   }
 
   /*
@@ -29,6 +31,14 @@ class ArrayProblems {
    */
   static getMax2(array) {
     // todo: 🙌 do magic !
+    let max;
+    for (let i = 0; i < array.length; i++) {
+      if (!max) max = array[0];
+      if (array[i] > max) {
+        max = array[i];
+      }
+    }
+    return max;
   }
 
   /*
@@ -39,8 +49,12 @@ class ArrayProblems {
 
    This method should perform n left rotations on the array
    */
-  static rotateLeft(array, n){
+  static rotateLeft(array, n) {
     // todo: 🙌 do magic !
+    for (let i = 0; i < n; i++) {
+      array.push(array.shift(0));
+    }
+    return array;
   }
 }
 module.exports = ArrayProblems;
