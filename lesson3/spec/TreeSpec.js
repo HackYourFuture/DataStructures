@@ -21,7 +21,7 @@ describe("Tree", function () {
   it("should be able to traverse in order", function () {
     let aux = [];
     bst._inOrder(bst.root, e => aux.push(e.data));
-    expect(aux).toEqual([2,5,7,9]);
+    expect(aux).toEqual([2, 5, 7, 9]);
   });
 
 });
